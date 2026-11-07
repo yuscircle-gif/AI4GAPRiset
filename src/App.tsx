@@ -18,13 +18,18 @@ import { FinalCtaSection } from './components/FinalCtaSection';
 import { Footer } from './components/Footer';
 import { CheckoutModal } from './components/CheckoutModal';
 import { ImagePreviewModal } from './components/ImagePreviewModal';
+import { BRAND_INFO, trackInitiateCheckout } from './data/landingData';
 
 export default function App() {
   const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
   const [isImagePreviewOpen, setIsImagePreviewOpen] = useState(false);
 
   const handleOpenCheckout = () => {
-    setIsCheckoutOpen(true);
+    // 1. Fire Meta Pixel event (SejutaPXID - 1081809303168090)
+    trackInitiateCheckout();
+    
+    // 2. Open Lynk.id checkout page in a new window/tab
+    window.open(BRAND_INFO.checkoutUrl, '_blank', 'noopener,noreferrer');
   };
 
   const handleCloseCheckout = () => {
@@ -40,7 +45,7 @@ export default function App() {
   };
 
   const handleWhatsAppChat = () => {
-    const text = encodeURIComponent('Halo Admin ResearchPotential.id, saya ingin bertanya seputar E-Book Unlock Research Potential dan 3 Bonus Eksklusif.');
+    const text = encodeURIComponent('Halo Admin BiruDaun Corp, saya ingin bertanya seputar E-Book Unlock Research Potential dan 3 Bonus Eksklusif.');
     window.open(`https://wa.me/6281234567890?text=${text}`, '_blank');
   };
 

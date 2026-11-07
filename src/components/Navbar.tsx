@@ -1,5 +1,5 @@
 import React from 'react';
-import { BookOpen } from 'lucide-react';
+import { BRAND_INFO } from '../data/landingData';
 
 interface NavbarProps {
   onCtaClick: () => void;
@@ -9,12 +9,16 @@ export const Navbar: React.FC<NavbarProps> = ({ onCtaClick }) => {
   return (
     <header className="w-full bg-[#0B1120]/90 backdrop-blur-md border-b border-slate-800/80 sticky top-[41px] z-40 transition-all">
       <div className="max-w-7xl mx-auto flex items-center justify-between gap-8 px-4 sm:px-6 py-3.5">
-        {/* Zone 1: Brand Wordmark (Single Text Element) */}
-        <a href="#" className="flex items-center gap-2.5 text-lg font-bold tracking-tight text-white whitespace-nowrap shrink-0 hover:text-emerald-400 transition-colors">
-          <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-emerald-400">
-            <BookOpen className="w-4 h-4" />
-          </span>
-          <span>ResearchPotential<span className="text-emerald-400">.id</span></span>
+        {/* Zone 1: Brand Wordmark (BiruDaun Corp with uploaded logo) */}
+        <a href="#" className="flex items-center gap-3 text-lg font-bold tracking-tight text-white whitespace-nowrap shrink-0 hover:text-emerald-400 transition-colors group">
+          <div className="w-9 h-9 rounded-xl bg-white p-1 flex items-center justify-center border border-slate-700/80 shadow-sm shrink-0 overflow-hidden group-hover:border-emerald-400 transition-colors">
+            <img 
+              src={BRAND_INFO.logo} 
+              alt={BRAND_INFO.name} 
+              className="w-full h-full object-contain"
+            />
+          </div>
+          <span className="font-extrabold tracking-tight">BiruDaun <span className="text-emerald-400">Corp</span></span>
         </a>
 
         {/* Zone 2: 4-5 Concise Single-line Nav Links */}

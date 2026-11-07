@@ -9,17 +9,21 @@ export const Footer: React.FC = () => {
           
           {/* Brand Info */}
           <div className="md:col-span-5">
-            <div className="flex items-center gap-2 text-white font-bold text-base mb-3">
-              <span className="flex items-center justify-center w-7 h-7 rounded-lg bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
-                <BookOpen className="w-4 h-4" />
-              </span>
-              <span>ResearchPotential<span className="text-emerald-400">.id</span></span>
+            <div className="flex items-center gap-3 text-white font-bold text-base mb-3">
+              <div className="w-8 h-8 rounded-lg bg-white p-1 flex items-center justify-center border border-slate-700 shrink-0 overflow-hidden">
+                <img 
+                  src="/assets/aistudio/logo_bd2_54a633d6.jpg" 
+                  alt="BiruDaun Corp" 
+                  className="w-full h-full object-contain"
+                />
+              </div>
+              <span className="font-extrabold tracking-tight">BiruDaun <span className="text-emerald-400">Corp</span></span>
             </div>
             <p className="text-slate-400 leading-relaxed max-w-sm mb-4">
-              Platform literasi kecerdasan buatan terapan untuk riset akademik. Membantu dosen, peneliti, dan mahasiswa merumuskan novelty ilmiah secara mandiri, presisi, dan bertanggung jawab.
+              Platform literasi kecerdasan buatan terapan untuk riset akademik oleh BiruDaun Corp. Membantu dosen, peneliti, dan mahasiswa merumuskan novelty ilmiah secara mandiri, presisi, dan bertanggung jawab.
             </p>
             <div className="text-[11px] text-slate-500">
-              © {new Date().getFullYear()} ResearchPotential.id. Seluruh Hak Cipta Dilindungi Undang-Undang.
+              © {new Date().getFullYear()} BiruDaun Corp. Seluruh Hak Cipta Dilindungi Undang-Undang.
             </div>
           </div>
 
@@ -45,7 +49,7 @@ export const Footer: React.FC = () => {
               <span>Komitmen Integritas Akademik</span>
             </div>
             <p className="text-[11px] text-slate-400 leading-relaxed">
-              ResearchPotential.id adalah materi panduan edukasi metodologi mandiri. Kami secara tegas <strong>menolak segala bentuk joki tesis, fabrikasi data, atau plagiarisme</strong>. Seluruh alur kerja dalam panduan ini bertujuan memberdayakan peneliti mengekstrak fakta literatur asli secara mandiri dan transparan.
+              BiruDaun Corp menyajikan materi panduan edukasi metodologi mandiri. Kami secara tegas <strong>menolak segala bentuk joki tesis, fabrikasi data, atau plagiarisme</strong>. Seluruh alur kerja dalam panduan ini bertujuan memberdayakan peneliti mengekstrak fakta literatur asli secara mandiri dan transparan.
             </p>
           </div>
 

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { X, CheckCircle, ShieldCheck, Download, QrCode, CreditCard, ArrowRight, Sparkles, MessageCircle, Copy, Check } from 'lucide-react';
-import { MAIN_PRODUCT, BONUS_STACK } from '../data/landingData';
+import { X, CheckCircle, ShieldCheck, Download, QrCode, CreditCard, ArrowRight, Sparkles, MessageCircle, Copy, Check, ExternalLink } from 'lucide-react';
+import { MAIN_PRODUCT, BONUS_STACK, BRAND_INFO, trackInitiateCheckout } from '../data/landingData';
 import { OrderFormData } from '../types';
 
 interface CheckoutModalProps {
@@ -42,7 +42,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({ isOpen, onClose })
     setTimeout(() => setCopiedBank(false), 2000);
   };
 
-  const whatsappMessage = `Halo Admin ResearchPotential.id, saya ingin konfirmasi pemesanan Bundle E-Book Unlock Research Potential (Rp 49.000).
+  const whatsappMessage = `Halo Admin BiruDaun Corp, saya ingin konfirmasi pemesanan Bundle E-Book Unlock Research Potential (Rp 49.000).
 Nama: ${formData.fullName || 'Nama Lengkap'}
 Email: ${formData.email || 'email@kampus.ac.id'}
 Kampus: ${formData.institution || '-'}`;
@@ -89,20 +89,32 @@ Kampus: ${formData.institution || '-'}`;
           {step === 'form' && (
             <form onSubmit={handleSubmitForm} className="space-y-4">
               
-              {/* Order summary mini banner */}
-              <div className="p-3.5 bg-slate-950 rounded-xl border border-slate-800 flex items-center justify-between">
-                <div>
-                  <span className="text-slate-300 font-semibold block text-xs">
-                    Bundle: E-Book Utama + 3 Bonus Eksklusif
-                  </span>
-                  <span className="text-slate-400 text-[11px]">
-                    Termasuk 50+ Prompt & Template Matriks
-                  </span>
+              {/* Direct Lynk.id Option */}
+              <div className="p-4 bg-emerald-950/40 rounded-xl border border-emerald-500/40 text-center space-y-2.5">
+                <div className="flex items-center justify-between text-left">
+                  <div>
+                    <span className="text-xs font-bold text-emerald-400 block">Metode Paling Praktis & Cepat:</span>
+                    <span className="text-[11px] text-slate-300">Checkout otomatis melalui platform resmi Lynk.id</span>
+                  </div>
+                  <span className="text-sm font-extrabold text-emerald-300">Rp 49.000</span>
                 </div>
-                <div className="text-right">
-                  <span className="text-xs text-slate-500 line-through block">Rp 149.000</span>
-                  <span className="text-base font-extrabold text-emerald-400">Rp 49.000</span>
-                </div>
+                <a
+                  href={BRAND_INFO.checkoutUrl}
+                  onClick={() => trackInitiateCheckout()}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full py-3 px-4 font-extrabold text-slate-950 bg-emerald-400 hover:bg-emerald-300 rounded-xl transition-all flex items-center justify-center gap-2 cursor-pointer shadow-md text-xs sm:text-sm"
+                >
+                  <ExternalLink className="w-4 h-4" />
+                  <span>Buka Halaman Checkout Lynk.id</span>
+                  <ArrowRight className="w-4 h-4" />
+                </a>
+              </div>
+
+              <div className="relative flex py-1 items-center">
+                <div className="flex-grow border-t border-slate-800"></div>
+                <span className="flex-shrink mx-3 text-[11px] text-slate-500 uppercase tracking-wider">atau isi formulir di bawah</span>
+                <div className="flex-grow border-t border-slate-800"></div>
               </div>
 
               {/* Input Fields */}
@@ -269,7 +281,7 @@ Kampus: ${formData.institution || '-'}`;
                   </div>
                   <div className="flex items-center justify-between">
                     <span className="text-xs text-slate-400">Atas Nama:</span>
-                    <span className="font-semibold text-white text-xs">Research Potential Academy</span>
+                    <span className="font-semibold text-white text-xs">BiruDaun Corp</span>
                   </div>
                 </div>
               )}

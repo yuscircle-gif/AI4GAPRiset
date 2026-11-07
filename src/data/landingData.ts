@@ -1,5 +1,29 @@
 import { BonusItem, FaqItem, ModuleItem, PainPoint, WorkflowStep } from '../types';
 
+export const BRAND_INFO = {
+  name: "BiruDaun Corp",
+  logo: "/assets/aistudio/logo_bd2_54a633d6.jpg",
+  checkoutUrl: "http://lynk.id/yuscircle/4kqe3dm34175/checkout",
+  metaPixelName: "SejutaPXID",
+  metaPixelId: "1081809303168090"
+};
+
+export const trackInitiateCheckout = () => {
+  if (typeof window !== 'undefined' && (window as any).fbq) {
+    try {
+      (window as any).fbq('track', 'InitiateCheckout', {
+        content_name: 'Unlock Research Potential Bundle (4 E-Books)',
+        content_category: 'E-Book Edukasi Riset',
+        value: 49000,
+        currency: 'IDR',
+        num_items: 4
+      });
+    } catch (e) {
+      console.warn('Pixel tracking error', e);
+    }
+  }
+};
+
 export const MAIN_PRODUCT = {
   title: "Unlock Research Potential: Panduan Cepat Temu Research Gap & Novelty dengan Kombinasi NotebookLM + ChatGPT",
   shortTitle: "Unlock Research Potential",
